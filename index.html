@@ -1,0 +1,967 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MR — Eventos · Booking · Logística</title>
+<meta name="description" content="Productora de eventos, booking de artistas nacionales e internacionales y logística para conciertos, eventos y festivales en Ecuador.">
+<meta property="og:title" content="MR">
+<meta property="og:type" content="website">
+
+<meta name="theme-color" content="#0B0B0B">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/css/site.css">
+<link rel="stylesheet" href="static/css/fx.css">
+<script>(function(d){try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches){d.className+=" fx-js";if(sessionStorage.getItem("fx-curtain")){d.className+=" fx-arrive";sessionStorage.removeItem("fx-curtain")}setTimeout(function(){d.className+=" fx-ready"},9000)}}catch(e){}})(document.documentElement)</script>
+</head>
+<body>
+<div class="fx-curtain" aria-hidden="true"><span class="m">M</span><span class="r">R</span></div>
+<div class="fx-grain" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5l1.3-4A8.5 8.5 0 1 1 8 19.6z"/><path d="M9 9.5c.3 2.4 2.1 4.2 4.5 4.5l1.2-1.1 1.8.8-.4 1.8c-3.9.2-7.3-3.2-7.1-7.1l1.8-.4.8 1.8z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></symbol>
+  <symbol id="i-cross" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 4v32M4 20h32"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></symbol>
+  <symbol id="i-tt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 2.8 2.3 4.5 5 4.8"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6.5v3.5H9V21h3.5v-7.5H15l.5-3.5h-3V7a1 1 0 0 1 1-1H15z"/></symbol>
+  <symbol id="i-spotify" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M7.5 9.5c3-1 6.5-.7 9 .8M8 12.5c2.5-.7 5.2-.4 7.3.8M8.5 15.3c2-.5 4-.3 5.6.6"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/></symbol>
+</svg>
+
+
+<!-- Pantalla de carga (se muestra una vez por visita) -->
+<div class="loader" data-loader role="dialog" aria-modal="true" aria-label="Cargando">
+  <div class="glow" style="width:560px;height:560px;left:calc(50% - 280px);top:12%;background:rgba(139,13,26,.6)" aria-hidden="true"></div>
+  <div class="glow" style="width:240px;height:240px;left:58%;top:60%;background:rgba(47,191,113,.18);animation-delay:-5s" aria-hidden="true"></div>
+  <svg class="fl cross" style="top:120px;left:8%;color:rgba(245,242,237,.35)" aria-hidden="true"><use href="#i-cross"/></svg>
+  <svg class="fl cross" style="bottom:140px;right:10%;color:rgba(229,57,74,.7);animation-delay:-3s" aria-hidden="true"><use href="#i-cross"/></svg>
+  <span class="loader-corner" style="left:40px">Eventos
+Booking
+Logística</span>
+  <span class="loader-corner" style="right:40px">Ecuador</span>
+  <div class="loader-card glass">
+    <div class="loader-mark"><span class="m">M</span><span class="r">R</span></div>
+    <div style="width:100%;display:flex;flex-direction:column;gap:12px">
+      <div class="loader-bar"><span data-loader-bar></span></div>
+      <div class="loader-meta"><span data-loader-status>Cargando</span><b data-loader-pct>0%</b></div>
+    </div>
+    <div class="loader-actions" data-loader-actions>
+      <button type="button" class="btn btn-red" data-enter="sound"><svg class="icon"><use href="#i-sound"/></svg>Entrar con sonido</button>
+      <button type="button" class="loader-skip" data-enter="mute">Entrar sin sonido</button>
+    </div>
+  </div>
+</div>
+
+<header class="site-header glass-ink">
+  <div class="wrap nav">
+    <a class="brand" href="index.html" aria-label="MR — Inicio">
+      <span class="brand-mark"><span class="m">M</span><span class="r">R</span></span>
+      <span class="brand-tag">Eventos
+Booking
+Logística</span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html#eventos" >Eventos</a></li>
+      <li><a href="index.html#booking" >Booking</a></li>
+      <li><a href="index.html#logistica">Logística</a></li>
+      <li><a href="galeria/index.html" >Galería</a></li>
+      <li><a href="noticias/index.html" >Noticias</a></li>
+      <li><a href="index.html#nosotros">Nosotros</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button type="button" class="sound-btn" data-sound-toggle aria-pressed="false">
+        <svg class="icon" style="width:16px;height:16px"><use href="#i-sound"/></svg>
+        <span data-sound-text>Sonido off</span>
+      </button>
+      <a class="btn btn-cream btn-sm" href="eventos/index.html">Entradas</a>
+      <button type="button" class="menu-btn" aria-controls="nav-links" aria-expanded="false" aria-label="Abrir menú" data-menu-toggle>
+        <svg class="icon"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio" aria-roledescription="carrusel" aria-label="Destacados" data-carousel>
+    <div class="glow" style="width:520px;height:520px;left:52%;top:80px;background:rgba(139,13,26,.55)" aria-hidden="true"></div>
+    <div class="glow" style="width:260px;height:260px;left:18%;top:420px;background:rgba(47,191,113,.14);animation-delay:-6s" aria-hidden="true"></div>
+    <svg class="fl cross" style="top:140px;left:4%;color:rgba(245,242,237,.35)" aria-hidden="true"><use href="#i-cross"/></svg>
+    <svg class="fl cross" style="bottom:120px;right:5%;color:rgba(229,57,74,.7);animation-delay:-4s" aria-hidden="true"><use href="#i-cross"/></svg>
+    <span class="fl dot" style="top:260px;right:14%;animation-delay:-2s" aria-hidden="true"></span>
+
+    <div class="wrap hero-inner">
+      <div class="hero-top">
+        <div>
+          
+            <div class="slide is-active" data-slide="0"><span class="hero-kicker" style="animation:fadeUp .7s ease-out both">Noches que
+se quedan
+contigo.</span></div>
+          
+            <div class="slide" data-slide="1"><span class="hero-kicker" style="animation:fadeUp .7s ease-out both">Artistas
+nacionales e
+internacionales.</span></div>
+          
+            <div class="slide" data-slide="2"><span class="hero-kicker" style="animation:fadeUp .7s ease-out both">Tu evento,
+sin
+preocupaciones.</span></div>
+          
+          <span class="hero-rule"></span>
+        </div>
+        <span class="hero-count"><span data-slide-num style="color:inherit">01</span> <span>/ 03</span></span>
+      </div>
+
+      <div class="hero-stage">
+        
+          <div class="slide is-active" data-slide="0">
+            <div class="hero-word" aria-hidden="true">Eventos</div>
+            <div class="hero-photo">
+              <div class="frame"><img class="cover" src="uploads/demo-evento1.jpg" alt=""></div>
+              <a class="hero-glass glass" href="eventos/demo-ev1/index.html">
+                <span><small>Próximo evento</small><strong>Noche Roja</strong></span>
+                <span class="go" aria-hidden="true"><svg width="16" height="16" style="color:#F5F2ED"><use href="#i-arrow"/></svg></span>
+              </a>
+            </div>
+          </div>
+        
+          <div class="slide" data-slide="1">
+            <div class="hero-word" aria-hidden="true">Booking</div>
+            <div class="hero-photo">
+              <div class="frame"><img class="cover" src="uploads/demo-hero-booking.jpg" alt=""></div>
+              <a class="hero-glass glass" href="#booking">
+                <span><small>Booking</small><strong>Contrata por WhatsApp</strong></span>
+                <span class="go" aria-hidden="true"><svg width="16" height="16" style="color:#F5F2ED"><use href="#i-arrow"/></svg></span>
+              </a>
+            </div>
+          </div>
+        
+          <div class="slide" data-slide="2">
+            <div class="hero-word" aria-hidden="true">Logística</div>
+            <div class="hero-photo">
+              <div class="frame"><img class="cover" src="uploads/demo-hero-logistica.jpg" alt=""></div>
+              <a class="hero-glass glass" href="#logistica">
+                <span><small>Logística</small><strong>Vallado, sonido y más</strong></span>
+                <span class="go" aria-hidden="true"><svg width="16" height="16" style="color:#F5F2ED"><use href="#i-arrow"/></svg></span>
+              </a>
+            </div>
+          </div>
+        
+        <h1 class="sr-only">MR — productora de eventos, booking de artistas y logística en Ecuador</h1>
+      </div>
+
+      <div class="hero-bottom">
+        <div>
+          
+            <div class="slide is-active" data-slide="0">
+              <div class="hero-ctas">
+                <a class="btn btn-red" href="https://example.com/entradas" target="_blank" rel="noopener">Comprar entradas</a>
+                <a class="ulink" href="#eventos">Ver agenda</a>
+              </div>
+            </div>
+          
+            <div class="slide" data-slide="1">
+              <div class="hero-ctas">
+                <a class="btn btn-red" href="#booking" >Ver artistas</a>
+                <a class="ulink" href="#contacto">Cotizar</a>
+              </div>
+            </div>
+          
+            <div class="slide" data-slide="2">
+              <div class="hero-ctas">
+                <a class="btn btn-red" href="#logistica" >Ver servicios</a>
+                <a class="ulink" href="#contacto">Cotizar</a>
+              </div>
+            </div>
+          
+        </div>
+        <div class="hero-controls">
+          <div class="hero-dots">
+            
+              <button type="button" data-goto="0" aria-label="Ir a Eventos" aria-current="true"><span></span></button>
+            
+              <button type="button" data-goto="1" aria-label="Ir a Booking" aria-current="false"><span></span></button>
+            
+              <button type="button" data-goto="2" aria-label="Ir a Logística" aria-current="false"><span></span></button>
+            
+          </div>
+          <button type="button" class="square-btn glass" data-prev aria-label="Anterior"><svg class="icon"><use href="#i-left"/></svg></button>
+          <button type="button" class="square-btn glass" data-next aria-label="Siguiente"><svg class="icon"><use href="#i-right"/></svg></button>
+        </div>
+        <div class="hero-next">
+          <span class="hero-kicker" style="font-size:11px">Próximo evento
+12 de diciembre de 2026
+Guayaquil</span>
+          <span class="hero-rule"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILARES -->
+  <section class="band-light on-light" aria-label="Lo que hacemos">
+    <div class="wrap pillars">
+      
+        <div class="pillar">
+          <div class="thumb"><img class="cover" src="uploads/demo-evento1.jpg" alt=""></div>
+          <div>
+            <h3>Eventos</h3>
+            <p style="white-space:pre-line">Conciertos, fiestas
+y festivales.</p>
+            <a class="ulink" href="#eventos">Ver agenda →</a>
+          </div>
+        </div>
+      
+        <div class="pillar">
+          <div class="thumb"><img class="cover" src="uploads/demo-artista1.jpg" alt=""></div>
+          <div>
+            <h3>Booking</h3>
+            <p style="white-space:pre-line">Artistas nacionales
+e internacionales.</p>
+            <a class="ulink" href="#booking">Ver artistas →</a>
+          </div>
+        </div>
+      
+        <div class="pillar">
+          <div class="thumb"><img class="cover" src="uploads/demo-hero-logistica.jpg" alt=""></div>
+          <div>
+            <h3>Logística</h3>
+            <p style="white-space:pre-line">Personal, vallado,
+sonido y permisos.</p>
+            <a class="ulink" href="#logistica">Ver servicios →</a>
+          </div>
+        </div>
+      
+    </div>
+  </section>
+
+  <!-- PRÓXIMOS EVENTOS -->
+  <section class="section" id="eventos" aria-labelledby="t-eventos">
+    <div class="wrap">
+      <div class="section-head">
+        <div><span class="eyebrow">Agenda</span><h2 class="h-section" id="t-eventos">Próximos eventos</h2></div>
+        <a class="ulink" href="eventos/index.html">Ver toda la agenda</a>
+      </div>
+      
+        <div class="grid-events"><article class="event-card">
+  <a class="event-media" href="eventos/demo-ev1/index.html" aria-label="Noche Roja">
+    <img class="cover" src="uploads/demo-evento1.jpg" alt="" loading="lazy">
+    <span class="date-badge"><b>12</b><span>DIC</span></span>
+    <span class="tag glass-ink">Concierto</span>
+  </a>
+  <div class="event-body">
+    <h3><a href="eventos/demo-ev1/index.html">Noche Roja</a></h3>
+    <span class="event-artists">DJ Luna Beat, Max Flow</span>
+    <span class="event-meta">Guayaquil · Estadio Modelo · 21:00</span>
+    <span class="spacer"></span>
+    
+      <a class="btn btn-cream" href="https://example.com/entradas" target="_blank" rel="noopener">Comprar entradas <span aria-hidden="true">→</span></a>
+    
+  </div>
+</article>
+<article class="event-card">
+  <a class="event-media" href="eventos/demo-ev2/index.html" aria-label="Festival Verde">
+    <img class="cover" src="uploads/demo-evento2.jpg" alt="" loading="lazy">
+    <span class="date-badge"><b>20</b><span>DIC</span></span>
+    <span class="tag glass-ink">Festival</span>
+  </a>
+  <div class="event-body">
+    <h3><a href="eventos/demo-ev2/index.html">Festival Verde</a></h3>
+    <span class="event-artists">Varios artistas</span>
+    <span class="event-meta">Quito · Parque Bicentenario · 18:00</span>
+    <span class="spacer"></span>
+    
+      <a class="btn btn-cream" href="https://example.com/entradas" target="_blank" rel="noopener">Comprar entradas <span aria-hidden="true">→</span></a>
+    
+  </div>
+</article>
+<article class="event-card">
+  <a class="event-media" href="eventos/demo-ev3/index.html" aria-label="Año Nuevo 2027">
+    <img class="cover" src="uploads/demo-evento3.jpg" alt="" loading="lazy">
+    <span class="date-badge"><b>31</b><span>DIC</span></span>
+    <span class="tag glass-ink">Fiesta</span>
+  </a>
+  <div class="event-body">
+    <h3><a href="eventos/demo-ev3/index.html">Año Nuevo 2027</a></h3>
+    <span class="event-artists">DJ Kira, Nova K</span>
+    <span class="event-meta">Cuenca · Club Central · 22:00</span>
+    <span class="spacer"></span>
+    
+      <a class="btn btn-cream" href="https://example.com/entradas" target="_blank" rel="noopener">Comprar entradas <span aria-hidden="true">→</span></a>
+    
+  </div>
+</article>
+<article class="event-card">
+  <a class="event-media" href="eventos/demo-ev4/index.html" aria-label="Reggaeton Night">
+    <img class="cover" src="uploads/demo-evento4.jpg" alt="" loading="lazy">
+    <span class="date-badge"><b>16</b><span>ENE</span></span>
+    <span class="tag glass-ink">Concierto</span>
+  </a>
+  <div class="event-body">
+    <h3><a href="eventos/demo-ev4/index.html">Reggaeton Night</a></h3>
+    <span class="event-artists">Los Caminos</span>
+    <span class="event-meta">Manta · Malecón Escénico · 20:00</span>
+    <span class="spacer"></span>
+    
+      <a class="btn btn-cream" href="https://example.com/entradas" target="_blank" rel="noopener">Comprar entradas <span aria-hidden="true">→</span></a>
+    
+  </div>
+</article>
+<article class="event-card">
+  <a class="event-media" href="eventos/demo-ev5/index.html" aria-label="Electro Sunset">
+    <img class="cover" src="uploads/demo-evento5.jpg" alt="" loading="lazy">
+    <span class="date-badge"><b>30</b><span>ENE</span></span>
+    <span class="tag glass-ink">Festival</span>
+  </a>
+  <div class="event-body">
+    <h3><a href="eventos/demo-ev5/index.html">Electro Sunset</a></h3>
+    <span class="event-artists">DJ Onyx, Trío Sol</span>
+    <span class="event-meta">Salinas · Playa Chipipe · 17:00</span>
+    <span class="spacer"></span>
+    
+      <a class="btn btn-cream" href="https://example.com/entradas" target="_blank" rel="noopener">Comprar entradas <span aria-hidden="true">→</span></a>
+    
+  </div>
+</article>
+<article class="event-card">
+  <a class="event-media" href="eventos/demo-ev6/index.html" aria-label="Carnaval Fest">
+    <img class="cover" src="uploads/demo-evento6.jpg" alt="" loading="lazy">
+    <span class="date-badge"><b>14</b><span>FEB</span></span>
+    <span class="tag glass-ink">Fiesta</span>
+  </a>
+  <div class="event-body">
+    <h3><a href="eventos/demo-ev6/index.html">Carnaval Fest</a></h3>
+    <span class="event-artists">Alma Viva</span>
+    <span class="event-meta">Ambato · Coliseo Mayor · 19:00</span>
+    <span class="spacer"></span>
+    
+      <a class="btn btn-cream" href="https://example.com/entradas" target="_blank" rel="noopener">Comprar entradas <span aria-hidden="true">→</span></a>
+    
+  </div>
+</article>
+</div>
+      
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      
+        <span>Eventos<svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 0v14M0 7h14" stroke="#F5F2ED" stroke-width="1.5"/></svg></span>
+      
+        <span>Booking<svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 0v14M0 7h14" stroke="#F5F2ED" stroke-width="1.5"/></svg></span>
+      
+        <span>Logística<svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 0v14M0 7h14" stroke="#F5F2ED" stroke-width="1.5"/></svg></span>
+      
+        <span>Artistas nacionales<svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 0v14M0 7h14" stroke="#F5F2ED" stroke-width="1.5"/></svg></span>
+      
+        <span>Artistas internacionales<svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 0v14M0 7h14" stroke="#F5F2ED" stroke-width="1.5"/></svg></span>
+      
+        <span>Eventos<svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 0v14M0 7h14" stroke="#F5F2ED" stroke-width="1.5"/></svg></span>
+      
+        <span>Booking<svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 0v14M0 7h14" stroke="#F5F2ED" stroke-width="1.5"/></svg></span>
+      
+        <span>Logística<svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 0v14M0 7h14" stroke="#F5F2ED" stroke-width="1.5"/></svg></span>
+      
+        <span>Artistas nacionales<svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 0v14M0 7h14" stroke="#F5F2ED" stroke-width="1.5"/></svg></span>
+      
+        <span>Artistas internacionales<svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 0v14M0 7h14" stroke="#F5F2ED" stroke-width="1.5"/></svg></span>
+      
+    </div>
+  </div>
+
+  <!-- BOOKING -->
+  <section class="section" id="booking" aria-labelledby="t-booking">
+    <div class="glow" style="width:460px;height:460px;right:-120px;top:40px;background:rgba(139,13,26,.4)" aria-hidden="true"></div>
+    <div class="wrap" style="position:relative">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Booking</span>
+          <h2 class="h-section" id="t-booking">Contrata a tu artista</h2>
+          <p class="lead" data-artist-hint>Activa el sonido y pasa el mouse sobre un artista para escucharlo. En el celular, toca el botón de play.</p>
+        </div>
+        <div class="tabs" role="group" aria-label="Filtrar artistas" data-filter-group="artists">
+          <button type="button" data-filter="all" aria-pressed="true">Todos</button>
+          <button type="button" data-filter="Nacional" aria-pressed="false">Nacionales</button>
+          <button type="button" data-filter="Internacional" aria-pressed="false">Internacionales</button>
+        </div>
+      </div>
+      
+        <div class="grid-artists" data-filter-target="artists"><article class="artist" data-origin="Nacional" data-audio="uploads/demo-muestra1.wav">
+  <div class="artist-media">
+    <div class="zoom">
+      <img class="cover" src="uploads/demo-artista1.jpg" alt="Luna Beat" loading="lazy">
+    </div>
+    <span class="tag glass-ink origin">Nacional</span>
+    
+    <button type="button" class="play-btn glass" data-play aria-pressed="false" aria-label="Escuchar muestra de Luna Beat">
+      <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <svg class="ico-play" width="14" height="14"><use href="#i-play"/></svg>
+      <span class="label">Sonando</span>
+    </button>
+    
+    <div class="reveal glass">Artista de ejemplo para ver cómo luce el perfil. Aquí irá la biografía real, con su trayectoria, giras y shows destacados.</div>
+  </div>
+  <div class="artist-body">
+    <div>
+      <h3><a href="artistas/demo-a1/index.html">Luna Beat</a></h3>
+      <span class="genre">House / Electrónica</span>
+    </div>
+    <div class="two-btns">
+      <a class="btn btn-line btn-sm" href="artistas/demo-a1/index.html">Ver perfil</a>
+      
+      
+      <a class="btn btn-green btn-sm" href="https://wa.me/593999999999?text=Hola%2C%20quiero%20cotizar%20la%20contrataci%C3%B3n%20de%20Luna%20Beat" target="_blank" rel="noopener"><svg class="icon" style="width:15px;height:15px"><use href="#i-wa"/></svg>Contratar</a>
+      
+    </div>
+  </div>
+</article>
+<article class="artist" data-origin="Internacional" data-audio="uploads/demo-muestra2.wav">
+  <div class="artist-media">
+    <div class="zoom">
+      <img class="cover" src="uploads/demo-artista2.jpg" alt="Max Flow" loading="lazy">
+    </div>
+    <span class="tag glass-ink origin">Internacional</span>
+    
+    <button type="button" class="play-btn glass" data-play aria-pressed="false" aria-label="Escuchar muestra de Max Flow">
+      <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <svg class="ico-play" width="14" height="14"><use href="#i-play"/></svg>
+      <span class="label">Sonando</span>
+    </button>
+    
+    <div class="reveal glass">Artista de ejemplo para ver cómo luce el perfil. Aquí irá la biografía real, con su trayectoria, giras y shows destacados.</div>
+  </div>
+  <div class="artist-body">
+    <div>
+      <h3><a href="artistas/demo-a2/index.html">Max Flow</a></h3>
+      <span class="genre">Reggaeton / Urbano</span>
+    </div>
+    <div class="two-btns">
+      <a class="btn btn-line btn-sm" href="artistas/demo-a2/index.html">Ver perfil</a>
+      
+      
+      <a class="btn btn-green btn-sm" href="https://wa.me/593999999999?text=Hola%2C%20quiero%20cotizar%20la%20contrataci%C3%B3n%20de%20Max%20Flow" target="_blank" rel="noopener"><svg class="icon" style="width:15px;height:15px"><use href="#i-wa"/></svg>Contratar</a>
+      
+    </div>
+  </div>
+</article>
+<article class="artist" data-origin="Nacional" data-audio="uploads/demo-muestra3.wav">
+  <div class="artist-media">
+    <div class="zoom">
+      <img class="cover" src="uploads/demo-artista3.jpg" alt="DJ Kira" loading="lazy">
+    </div>
+    <span class="tag glass-ink origin">Nacional</span>
+    
+    <button type="button" class="play-btn glass" data-play aria-pressed="false" aria-label="Escuchar muestra de DJ Kira">
+      <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <svg class="ico-play" width="14" height="14"><use href="#i-play"/></svg>
+      <span class="label">Sonando</span>
+    </button>
+    
+    <div class="reveal glass">Artista de ejemplo para ver cómo luce el perfil. Aquí irá la biografía real, con su trayectoria, giras y shows destacados.</div>
+  </div>
+  <div class="artist-body">
+    <div>
+      <h3><a href="artistas/demo-a3/index.html">DJ Kira</a></h3>
+      <span class="genre">Techno / House</span>
+    </div>
+    <div class="two-btns">
+      <a class="btn btn-line btn-sm" href="artistas/demo-a3/index.html">Ver perfil</a>
+      
+      
+      <a class="btn btn-green btn-sm" href="https://wa.me/593999999999?text=Hola%2C%20quiero%20cotizar%20la%20contrataci%C3%B3n%20de%20DJ%20Kira" target="_blank" rel="noopener"><svg class="icon" style="width:15px;height:15px"><use href="#i-wa"/></svg>Contratar</a>
+      
+    </div>
+  </div>
+</article>
+<article class="artist" data-origin="Nacional" data-audio="uploads/demo-muestra4.wav">
+  <div class="artist-media">
+    <div class="zoom">
+      <img class="cover" src="uploads/demo-artista4.jpg" alt="Trío Sol" loading="lazy">
+    </div>
+    <span class="tag glass-ink origin">Nacional</span>
+    
+    <button type="button" class="play-btn glass" data-play aria-pressed="false" aria-label="Escuchar muestra de Trío Sol">
+      <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <svg class="ico-play" width="14" height="14"><use href="#i-play"/></svg>
+      <span class="label">Sonando</span>
+    </button>
+    
+    <div class="reveal glass">Artista de ejemplo para ver cómo luce el perfil. Aquí irá la biografía real, con su trayectoria, giras y shows destacados.</div>
+  </div>
+  <div class="artist-body">
+    <div>
+      <h3><a href="artistas/demo-a4/index.html">Trío Sol</a></h3>
+      <span class="genre">Pop / Fusión</span>
+    </div>
+    <div class="two-btns">
+      <a class="btn btn-line btn-sm" href="artistas/demo-a4/index.html">Ver perfil</a>
+      
+      
+      <a class="btn btn-green btn-sm" href="https://wa.me/593999999999?text=Hola%2C%20quiero%20cotizar%20la%20contrataci%C3%B3n%20de%20Tr%C3%ADo%20Sol" target="_blank" rel="noopener"><svg class="icon" style="width:15px;height:15px"><use href="#i-wa"/></svg>Contratar</a>
+      
+    </div>
+  </div>
+</article>
+<article class="artist" data-origin="Internacional" >
+  <div class="artist-media">
+    <div class="zoom">
+      <img class="cover" src="uploads/demo-artista5.jpg" alt="Nova K" loading="lazy">
+    </div>
+    <span class="tag glass-ink origin">Internacional</span>
+    
+    <div class="reveal glass">Artista de ejemplo para ver cómo luce el perfil. Aquí irá la biografía real, con su trayectoria, giras y shows destacados.</div>
+  </div>
+  <div class="artist-body">
+    <div>
+      <h3><a href="artistas/demo-a5/index.html">Nova K</a></h3>
+      <span class="genre">Pop latino</span>
+    </div>
+    <div class="two-btns">
+      <a class="btn btn-line btn-sm" href="artistas/demo-a5/index.html">Ver perfil</a>
+      
+      
+      <a class="btn btn-green btn-sm" href="https://wa.me/593999999999?text=Hola%2C%20quiero%20cotizar%20la%20contrataci%C3%B3n%20de%20Nova%20K" target="_blank" rel="noopener"><svg class="icon" style="width:15px;height:15px"><use href="#i-wa"/></svg>Contratar</a>
+      
+    </div>
+  </div>
+</article>
+<article class="artist" data-origin="Nacional" >
+  <div class="artist-media">
+    <div class="zoom">
+      <img class="cover" src="uploads/demo-artista6.jpg" alt="Los Caminos" loading="lazy">
+    </div>
+    <span class="tag glass-ink origin">Nacional</span>
+    
+    <div class="reveal glass">Artista de ejemplo para ver cómo luce el perfil. Aquí irá la biografía real, con su trayectoria, giras y shows destacados.</div>
+  </div>
+  <div class="artist-body">
+    <div>
+      <h3><a href="artistas/demo-a6/index.html">Los Caminos</a></h3>
+      <span class="genre">Tropical / Salsa</span>
+    </div>
+    <div class="two-btns">
+      <a class="btn btn-line btn-sm" href="artistas/demo-a6/index.html">Ver perfil</a>
+      
+      
+      <a class="btn btn-green btn-sm" href="https://wa.me/593999999999?text=Hola%2C%20quiero%20cotizar%20la%20contrataci%C3%B3n%20de%20Los%20Caminos" target="_blank" rel="noopener"><svg class="icon" style="width:15px;height:15px"><use href="#i-wa"/></svg>Contratar</a>
+      
+    </div>
+  </div>
+</article>
+<article class="artist" data-origin="Nacional" >
+  <div class="artist-media">
+    <div class="zoom">
+      <img class="cover" src="uploads/demo-artista7.jpg" alt="Alma Viva" loading="lazy">
+    </div>
+    <span class="tag glass-ink origin">Nacional</span>
+    
+    <div class="reveal glass">Artista de ejemplo para ver cómo luce el perfil. Aquí irá la biografía real, con su trayectoria, giras y shows destacados.</div>
+  </div>
+  <div class="artist-body">
+    <div>
+      <h3><a href="artistas/demo-a7/index.html">Alma Viva</a></h3>
+      <span class="genre">Folclor moderno</span>
+    </div>
+    <div class="two-btns">
+      <a class="btn btn-line btn-sm" href="artistas/demo-a7/index.html">Ver perfil</a>
+      
+      
+      <a class="btn btn-green btn-sm" href="https://wa.me/593999999999?text=Hola%2C%20quiero%20cotizar%20la%20contrataci%C3%B3n%20de%20Alma%20Viva" target="_blank" rel="noopener"><svg class="icon" style="width:15px;height:15px"><use href="#i-wa"/></svg>Contratar</a>
+      
+    </div>
+  </div>
+</article>
+<article class="artist" data-origin="Internacional" >
+  <div class="artist-media">
+    <div class="zoom">
+      <img class="cover" src="uploads/demo-artista8.jpg" alt="DJ Onyx" loading="lazy">
+    </div>
+    <span class="tag glass-ink origin">Internacional</span>
+    
+    <div class="reveal glass">Artista de ejemplo para ver cómo luce el perfil. Aquí irá la biografía real, con su trayectoria, giras y shows destacados.</div>
+  </div>
+  <div class="artist-body">
+    <div>
+      <h3><a href="artistas/demo-a8/index.html">DJ Onyx</a></h3>
+      <span class="genre">Afro house</span>
+    </div>
+    <div class="two-btns">
+      <a class="btn btn-line btn-sm" href="artistas/demo-a8/index.html">Ver perfil</a>
+      
+      
+      <a class="btn btn-green btn-sm" href="https://wa.me/593999999999?text=Hola%2C%20quiero%20cotizar%20la%20contrataci%C3%B3n%20de%20DJ%20Onyx" target="_blank" rel="noopener"><svg class="icon" style="width:15px;height:15px"><use href="#i-wa"/></svg>Contratar</a>
+      
+    </div>
+  </div>
+</article>
+</div>
+      
+    </div>
+  </section>
+
+  <!-- LOGÍSTICA -->
+  <section class="section band-light on-light" id="logistica" aria-labelledby="t-logistica">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Logística</span>
+          <h2 class="h-section" id="t-logistica">Todo lo que tu evento necesita</h2>
+          <p class="lead">Servicios para conciertos, eventos y festivales. Cotiza directo por WhatsApp.</p>
+        </div>
+        
+        <a class="btn btn-ink" href="https://wa.me/593999999999?text=Hola%2C%20quiero%20cotizar%20log%C3%ADstica%20para%20mi%20evento" target="_blank" rel="noopener"><svg class="icon" style="color:#2FBF71"><use href="#i-wa"/></svg>Cotizar logística</a>
+      </div>
+      
+<div class="services">
+  
+    <div class="service">
+      <div class="service-top">
+        <span>01</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0B0B0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h13v10H3zM16 10h3l2 3v4h-5M7 19.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M18 19.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/></svg>
+      </div>
+      <h3>Personal de carga</h3>
+      <p>Equipo para montaje, desmontaje y traslado de equipos y escenario.</p>
+      <a class="ulink" href="https://wa.me/593999999999?text=Hola%2C%20quiero%20cotizar%3A%20Personal%20de%20carga" target="_blank" rel="noopener">Cotizar</a>
+    </div>
+  
+    <div class="service">
+      <div class="service-top">
+        <span>02</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0B0B0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6zM9 12l2 2 4-4"/></svg>
+      </div>
+      <h3>Personal de seguridad</h3>
+      <p>Control de accesos, zonas y público durante todo el evento.</p>
+      <a class="ulink" href="https://wa.me/593999999999?text=Hola%2C%20quiero%20cotizar%3A%20Personal%20de%20seguridad" target="_blank" rel="noopener">Cotizar</a>
+    </div>
+  
+    <div class="service">
+      <div class="service-top">
+        <span>03</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0B0B0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6v13M9 6v13M15 6v13M21 6v13M3 9h18M3 15h18"/></svg>
+      </div>
+      <h3>Vallado</h3>
+      <p>Vallas para conciertos, eventos y festivales: filas, perímetros y zonas.</p>
+      <a class="ulink" href="https://wa.me/593999999999?text=Hola%2C%20quiero%20cotizar%3A%20Vallado" target="_blank" rel="noopener">Cotizar</a>
+    </div>
+  
+    <div class="service">
+      <div class="service-top">
+        <span>04</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0B0B0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2.5h12v19H6zM12 18a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7M12 8.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/></svg>
+      </div>
+      <h3>Sonido</h3>
+      <p>Equipos de audio y técnicos para eventos de cualquier tamaño.</p>
+      <a class="ulink" href="https://wa.me/593999999999?text=Hola%2C%20quiero%20cotizar%3A%20Sonido" target="_blank" rel="noopener">Cotizar</a>
+    </div>
+  
+    <div class="service">
+      <div class="service-top">
+        <span>05</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0B0B0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7zM14 3v4h4M10 13l2 2 3-4"/></svg>
+      </div>
+      <h3>Permisos</h3>
+      <p>Te acompañamos en los trámites y permisos que pide tu evento.</p>
+      <a class="ulink" href="https://wa.me/593999999999?text=Hola%2C%20quiero%20cotizar%3A%20Permisos" target="_blank" rel="noopener">Cotizar</a>
+    </div>
+  
+    <div class="service">
+      <div class="service-top">
+        <span>06</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0B0B0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3v9h10V3M5 12h14M7 12l-1 9M17 12l1 9"/></svg>
+      </div>
+      <h3>Alquiler de sillas</h3>
+      <p>Sillas para eventos sociales, corporativos y espectáculos.</p>
+      <a class="ulink" href="https://wa.me/593999999999?text=Hola%2C%20quiero%20cotizar%3A%20Alquiler%20de%20sillas" target="_blank" rel="noopener">Cotizar</a>
+    </div>
+  
+    <div class="service">
+      <div class="service-top">
+        <span>07</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0B0B0B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+      </div>
+      <h3>Y más servicios</h3>
+      <p>Cuéntanos qué necesitas y armamos una propuesta a la medida.</p>
+      <a class="ulink" href="https://wa.me/593999999999?text=Hola%2C%20quiero%20cotizar%3A%20Y%20m%C3%A1s%20servicios" target="_blank" rel="noopener">Cotizar</a>
+    </div>
+  
+</div>
+
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section class="section" id="galeria" aria-labelledby="t-galeria">
+    <div class="glow" style="width:380px;height:380px;left:-100px;top:200px;background:rgba(139,13,26,.32)" aria-hidden="true"></div>
+    <div class="wrap" style="position:relative">
+      <div class="section-head">
+        <div><span class="eyebrow">Galería</span><h2 class="h-section" id="t-galeria">Así se vivieron</h2></div>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:28px">
+          <div class="tabs" role="group" aria-label="Filtrar galería" data-filter-group="gallery">
+            <button type="button" data-filter="all" aria-pressed="true">Todo</button>
+            <button type="button" data-filter="foto" aria-pressed="false">Fotos</button>
+            <button type="button" data-filter="video" aria-pressed="false">Videos</button>
+          </div>
+          <a class="ulink" href="galeria/index.html">Ver galería completa</a>
+        </div>
+      </div>
+      
+        <div class="grid-gallery" data-filter-target="gallery">
+<button type="button" class="gal-item tall" data-kind="foto"
+  data-src="uploads/demo-galeria1.jpg" 
+  aria-label="Ver foto: Festival Verde — Quito · 2026">
+  <img src="uploads/demo-galeria1.jpg" alt="" loading="lazy">
+  
+  
+  
+  <span class="gal-info glass-ink">
+    <span><strong>Festival Verde</strong><small>Quito · 2026</small></span>
+    <em>Foto</em>
+  </span>
+  
+</button>
+
+<button type="button" class="gal-item" data-kind="foto"
+  data-src="uploads/demo-galeria2.jpg" 
+  aria-label="Ver foto: Año Nuevo — Cuenca · 2026">
+  <img src="uploads/demo-galeria2.jpg" alt="" loading="lazy">
+  
+  
+  
+  <span class="gal-info glass-ink">
+    <span><strong>Año Nuevo</strong><small>Cuenca · 2026</small></span>
+    <em>Foto</em>
+  </span>
+  
+</button>
+
+<button type="button" class="gal-item" data-kind="foto"
+  data-src="uploads/demo-galeria3.jpg" 
+  aria-label="Ver foto: Electro Sunset — Salinas · 2026">
+  <img src="uploads/demo-galeria3.jpg" alt="" loading="lazy">
+  
+  
+  
+  <span class="gal-info glass-ink">
+    <span><strong>Electro Sunset</strong><small>Salinas · 2026</small></span>
+    <em>Foto</em>
+  </span>
+  
+</button>
+
+<button type="button" class="gal-item tall" data-kind="foto"
+  data-src="uploads/demo-galeria4.jpg" 
+  aria-label="Ver foto: Carnaval Fest — Manta · 2026">
+  <img src="uploads/demo-galeria4.jpg" alt="" loading="lazy">
+  
+  
+  
+  <span class="gal-info glass-ink">
+    <span><strong>Carnaval Fest</strong><small>Manta · 2026</small></span>
+    <em>Foto</em>
+  </span>
+  
+</button>
+
+<button type="button" class="gal-item" data-kind="foto"
+  data-src="uploads/demo-galeria5.jpg" 
+  aria-label="Ver foto: Noche Roja — Guayaquil · 2026">
+  <img src="uploads/demo-galeria5.jpg" alt="" loading="lazy">
+  
+  
+  
+  <span class="gal-info glass-ink">
+    <span><strong>Noche Roja</strong><small>Guayaquil · 2026</small></span>
+    <em>Foto</em>
+  </span>
+  
+</button>
+
+<button type="button" class="gal-item" data-kind="foto"
+  data-src="uploads/demo-galeria6.jpg" 
+  aria-label="Ver foto: Festival Verde — Quito · 2026">
+  <img src="uploads/demo-galeria6.jpg" alt="" loading="lazy">
+  
+  
+  
+  <span class="gal-info glass-ink">
+    <span><strong>Festival Verde</strong><small>Quito · 2026</small></span>
+    <em>Foto</em>
+  </span>
+  
+</button>
+
+<button type="button" class="gal-item tall" data-kind="foto"
+  data-src="uploads/demo-galeria7.jpg" 
+  aria-label="Ver foto: Año Nuevo — Cuenca · 2026">
+  <img src="uploads/demo-galeria7.jpg" alt="" loading="lazy">
+  
+  
+  
+  <span class="gal-info glass-ink">
+    <span><strong>Año Nuevo</strong><small>Cuenca · 2026</small></span>
+    <em>Foto</em>
+  </span>
+  
+</button>
+
+<button type="button" class="gal-item" data-kind="foto"
+  data-src="uploads/demo-galeria8.jpg" 
+  aria-label="Ver foto: Electro Sunset — Salinas · 2026">
+  <img src="uploads/demo-galeria8.jpg" alt="" loading="lazy">
+  
+  
+  
+  <span class="gal-info glass-ink">
+    <span><strong>Electro Sunset</strong><small>Salinas · 2026</small></span>
+    <em>Foto</em>
+  </span>
+  
+</button>
+
+<button type="button" class="gal-item" data-kind="foto"
+  data-src="uploads/demo-galeria9.jpg" 
+  aria-label="Ver foto: Carnaval Fest — Manta · 2026">
+  <img src="uploads/demo-galeria9.jpg" alt="" loading="lazy">
+  
+  
+  
+  <span class="gal-info glass-ink">
+    <span><strong>Carnaval Fest</strong><small>Manta · 2026</small></span>
+    <em>Foto</em>
+  </span>
+  
+</button>
+
+<button type="button" class="gal-item tall" data-kind="foto"
+  data-src="uploads/demo-galeria10.jpg" 
+  aria-label="Ver foto: Noche Roja — Guayaquil · 2026">
+  <img src="uploads/demo-galeria10.jpg" alt="" loading="lazy">
+  
+  
+  
+  <span class="gal-info glass-ink">
+    <span><strong>Noche Roja</strong><small>Guayaquil · 2026</small></span>
+    <em>Foto</em>
+  </span>
+  
+</button>
+</div>
+      
+    </div>
+  </section>
+
+  <!-- NOTICIAS -->
+  <section class="section band-light on-light" id="noticias" aria-labelledby="t-noticias">
+    <div class="wrap">
+      <div class="section-head">
+        <div><span class="eyebrow">Noticias</span><h2 class="h-section" id="t-noticias">Lo último</h2></div>
+        <a class="ulink" href="noticias/index.html" style="color:#0B0B0B">Todas las noticias</a>
+      </div>
+      
+        <div class="grid-news"><article class="news-card">
+  <a class="media" href="noticias/demo-n3/index.html" tabindex="-1" aria-hidden="true">
+    <img class="cover" src="uploads/demo-noticia3.jpg" alt="" loading="lazy">
+  </a>
+  <div class="news-meta"><b>Logística</b><i></i><span>16/11/2026</span></div>
+  <h3><a href="noticias/demo-n3/index.html">Así armamos un montaje de gran escala</a></h3>
+  <p>Resumen corto de la noticia de ejemplo, para ver cómo se ve la tarjeta en la portada.</p>
+  <a class="ulink" href="noticias/demo-n3/index.html">Leer más</a>
+</article>
+<article class="news-card">
+  <a class="media" href="noticias/demo-n2/index.html" tabindex="-1" aria-hidden="true">
+    <img class="cover" src="uploads/demo-noticia2.jpg" alt="" loading="lazy">
+  </a>
+  <div class="news-meta"><b>Booking</b><i></i><span>13/11/2026</span></div>
+  <h3><a href="noticias/demo-n2/index.html">Booking internacional: llegan nuevos artistas</a></h3>
+  <p>Resumen corto de la noticia de ejemplo, para ver cómo se ve la tarjeta en la portada.</p>
+  <a class="ulink" href="noticias/demo-n2/index.html">Leer más</a>
+</article>
+<article class="news-card">
+  <a class="media" href="noticias/demo-n1/index.html" tabindex="-1" aria-hidden="true">
+    <img class="cover" src="uploads/demo-noticia1.jpg" alt="" loading="lazy">
+  </a>
+  <div class="news-meta"><b>Eventos</b><i></i><span>10/11/2026</span></div>
+  <h3><a href="noticias/demo-n1/index.html">Nuevo festival anunciado</a></h3>
+  <p>Resumen corto de la noticia de ejemplo, para ver cómo se ve la tarjeta en la portada.</p>
+  <a class="ulink" href="noticias/demo-n1/index.html">Leer más</a>
+</article>
+</div>
+      
+    </div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section class="section" id="nosotros" aria-labelledby="t-nosotros">
+    <div class="wrap about">
+      <div>
+        <span class="eyebrow">Nosotros</span>
+        <h2 class="h-section" id="t-nosotros">Eventos, booking y logística en un solo equipo</h2>
+        <div class="prose"><p>[ejemplo] Somos una productora de eventos con experiencia en conciertos, festivales y fiestas. Además representamos artistas nacionales e internacionales y resolvemos toda la logística: personal, seguridad, vallado, sonido y permisos.</p><p>Trabajamos para que tu evento salga perfecto de principio a fin.</p></div>
+      </div>
+      
+      
+      <div>
+        <div class="stats"><div><b>+120</b><span>Eventos realizados</span></div><div><b>35</b><span>Artistas</span></div><div><b>12</b><span>Ciudades</span></div></div>
+      </div>
+      
+    </div>
+  </section>
+
+  <section class="cta" id="contacto" aria-labelledby="t-cta">
+  <div class="cta-mark" aria-hidden="true">MR</div>
+  <div class="wrap">
+    <span class="eyebrow">Contacto</span>
+    <h2 id="t-cta">¿Tienes un evento en mente?</h2>
+    <p>Producción, artistas y logística. Escríbenos y te respondemos por WhatsApp.</p>
+    
+    <div class="row-actions">
+      <a class="btn btn-ink" href="https://wa.me/593999999999?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20un%20evento" target="_blank" rel="noopener"><svg class="icon" style="color:#2FBF71"><use href="#i-wa"/></svg>Escríbenos por WhatsApp</a>
+      
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-left">
+      <span class="brand-mark"><span class="m">M</span><span class="r">R</span></span>
+      <span>© 2026 MR · Ecuador</span>
+    </div>
+    <nav class="socials" aria-label="Redes sociales">
+      <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="icon"><use href="#i-ig"/></svg></a>
+      <a href="https://tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><svg class="icon"><use href="#i-tt"/></svg></a>
+      <a href="https://facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><svg class="icon"><use href="#i-fb"/></svg></a>
+      <a href="https://wa.me/593999999999" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="icon"><use href="#i-wa"/></svg></a>
+    </nav>
+    
+  </div>
+</footer>
+
+<div class="lightbox" data-lightbox role="dialog" aria-modal="true" aria-label="Vista ampliada">
+  <button type="button" class="square-btn glass lightbox-close" data-lightbox-close aria-label="Cerrar"><svg class="icon"><use href="#i-close"/></svg></button>
+  <div class="lightbox-content" data-lightbox-content></div>
+</div>
+
+<div class="fx-floats" data-floats>
+  <a class="wa-float" href="https://wa.me/593999999999?text=Hola%2C%20quiero%20informaci%C3%B3n" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg class="icon"><use href="#i-wa"/></svg><span class="wa-tip glass-ink">Escríbenos</span></a>
+</div>
+
+<script src="static/js/site.js" defer></script>
+<script src="static/js/fx.js" defer></script>
+</body>
+</html>
+

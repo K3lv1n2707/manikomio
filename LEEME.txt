@@ -1,0 +1,8 @@
+VISTA PREVIA DEL SITIO - MR (Manikomio Records)
+
+Para verla: abre la carpeta y haz doble clic en "index.html" (se abre en Safari o Chrome).
+Necesita internet solo para cargar la tipografia.
+
+- Es una VISTA PREVIA: eventos, artistas, fotos y noticias son de ejemplo.
+- Al entrar, elige "Entrar con sonido" y pasa el mouse sobre un artista para escuchar la muestra.
+- El panel de administrador no esta incluido en esta vista previa.
